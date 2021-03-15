@@ -5,9 +5,10 @@ const {
 } = require("apollo-server");
 const { createHttpLink } = require("apollo-link-http");
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 4000;
-const HASURA_GRAPHQL_URL = "https://envoy-dev.herokuapp.com";
+const HASURA_GRAPHQL_URL = process.env.HASURA_GRAPHQL_URL;
 const HASURA_GRAPHQL_API_URL = HASURA_GRAPHQL_URL + "/v1alpha1/graphql";
 
 // Server Function
@@ -18,7 +19,7 @@ async function run() {
       uri: HASURA_GRAPHQL_API_URL,
       fetch,
       headers: {
-        "x-hasura-admin-secret": `stealthy`
+        "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET
       }
     });
   // 2. Retrieve schema definition of the underlying GraphQL API
