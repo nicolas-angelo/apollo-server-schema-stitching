@@ -1,0 +1,26 @@
+{
+  "name": "apollo-server",
+  "description": "",
+  "dependencies": {
+    "apollo-link": "1.2.14",
+    "apollo-link-http": "1.5.17",
+    "apollo-link-ws": "1.0.20",
+    "apollo-server": "2.9.7",
+    "apollo-utilities": "1.3.4",
+    "graphql": "14.5.8",
+    "graphql-tools": "7.0.4",
+    "node-fetch": "2.6.1",
+    "subscriptions-transport-ws": "0.9.18",
+    "ws": "7.4.4"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js localhost 4000"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/graphql": "14.0.1",
+    "nodemon": "1.18.4"
+  }
+}

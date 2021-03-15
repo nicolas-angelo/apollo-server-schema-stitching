@@ -1,0 +1,14 @@
+{
+  "name": "Apollo Graphql",
+  "description": "Schema stitching with Hasura.",
+  "logo": "https://seeklogo.com/images/A/apollo-logo-DC7DD3C444-seeklogo.com.png",
+  "repository": "https://github.com/hasura/graphql-engine-heroku",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm run build"
+  }
+}
