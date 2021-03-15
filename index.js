@@ -6,15 +6,9 @@ const {
 const { createHttpLink } = require("apollo-link-http");
 const fetch = require("node-fetch");
 
+const PORT = process.env.PORT || 4000;
 const HASURA_GRAPHQL_URL = "https://envoy-dev.herokuapp.com";
 const HASURA_GRAPHQL_API_URL = HASURA_GRAPHQL_URL + "/v1alpha1/graphql";
-
-const runHandler = (event, context, handler) =>
-  new Promise((resolve, reject) => {
-    const callback = (error, body) => (error ? reject(error) : resolve(body));
-
-    handler(event, context, callback);
-  });
 
 // Server Function
 async function run() {
@@ -41,17 +35,8 @@ async function run() {
     playground: true
   });
 
-  // const handler = server.createHandler({
-  //   cors: {
-  //     origin: "*",
-  //     credentials: true,
-  //     allowedHeaders: ["ContentType", "content-type", "Origin", "Accept"]
-  //   }
-  // });
-  // const response = await runHandler(event, context, handler);
-
-  server.listen().then(({ url }) => {
-    console.log(`🚀 Server ready at ${url}`);
+  server.listen(PORT, () => {
+    console.log(`🚀 Server ready ${PORT}`);
   });
 }
 
